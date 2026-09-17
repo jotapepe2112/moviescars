@@ -8,9 +8,6 @@ using System;
 
 namespace Ucu.Poo.Repositories
 {
-    /// <summary>
-    /// Esta clase representa una base de datos de autos.
-    /// </summary>
     public class CarsDatabase
     {
         private Repository<Car> repository = new Repository<Car>();

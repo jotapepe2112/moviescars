@@ -8,9 +8,6 @@ using System;
 
 namespace Ucu.Poo.Repositories
 {
-    /// <summary>
-    /// Esta clase representa un catálogo de películas.
-    /// </summary>
     public class MoviesCatalog
     {
         private Repository<Movie> repository = new Repository<Movie>();
