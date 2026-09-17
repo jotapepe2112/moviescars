@@ -5,7 +5,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
 
 namespace Ucu.Poo.Repositories
 {
@@ -14,47 +13,21 @@ namespace Ucu.Poo.Repositories
     /// </summary>
     public class MoviesCatalog
     {
-        private ArrayList movies = new ArrayList();
+        private Repository<Movie> repository = new Repository<Movie>();
 
-        /// <summary>
-        /// Agrega una película al catálogo.
-        /// </summary>
-        /// <param name="movie">La película a agregar.</param>
         public void Add(Movie movie)
         {
-            if (movie != null)
-            {
-                this.movies.Add(movie);
-            }
+            this.repository.Add(movie);
         }
 
-        /// <summary>
-        /// Elimina una película del catálogo.
-        /// </summary>
-        /// <param name="movie">La película a remover.</param>
         public void Remove(Movie movie)
         {
-            this.movies.Remove(movie);
+            this.repository.Remove(movie);
         }
 
-        /// <summary>
-        /// Busca una película en el catálogo que cumpla con un criterio
-        /// específico.
-        /// </summary>
-        /// <param name="criteria">El criterio por el cual buscar.</param>
-        /// <returns>La película encontrada que cumple el criterio especificado
-        /// o null si no se encuentra ninguna.</returns>
         public Movie Find(Predicate<Movie> criteria)
         {
-            foreach (Movie movie in this.movies)
-            {
-                if (criteria(movie))
-                {
-                    return movie;
-                }
-            }
-
-            return null;
+            return this.repository.Find(criteria);
         }
     }
 }
